@@ -50,7 +50,7 @@ def downloadvid(event):
             except:
                 print("some error occured while downloading")
         elif(val==5):
-            vid = yt.streams.filter("144p").first()
+            vid = yt.streams.filter(res="144p").first()
             try:
                 vid.download("D:/")
             except:
@@ -62,8 +62,6 @@ def downloadvid(event):
 
 
     print("downlaod vid is called")
-
-
 
 
 
