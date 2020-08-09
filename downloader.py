@@ -16,49 +16,61 @@ frame2.pack()
 
 frame_for_res=Frame(window,height=100,bg="light sky blue")
 frame_for_res.pack(pady=10)
-
-
+fram_for_error=Frame(window,height=100,bg="light sky blue")
+fram_for_error.pack(pady=40)
+for_status=Label(fram_for_error, text=" ", bg="light sky blue")
+for_status.pack()
+ERROR="some error occured "
 def downloadvid(event):
     val=var.get()
     url=urlentry.get()
     print(url)
-    yt=YouTube(url)
-
+    for_status.configure(text="")
+    try:
+        yt=YouTube(url)
+    except:
+        for_status.configure(text=ERROR)
     try:
         if(val==1):
             vid=yt.streams.filter(res="720p").first()
             try:
                 vid.download("D:/")
             except:
-                print("some error occured while downloading")
+                for_status.configure(text=ERROR)
+                #print("some error occured while downloading")
         elif(val==2):
             vid = yt.streams.filter(res="480p").first()
             try:
                 vid.download("D:/")
             except:
-                print("some error occured while downloading")
+                for_status.configure(text=ERROR)
+                #print("some error occured while downloading")
         elif(val==3):
             vid = yt.streams.filter(res="360p").first()
             try:
                 vid.download("D:/")
             except:
-                print("some error occured while downloading")
+                for_status.configure(text=ERROR)
+                #print("some error occured while downloading")
         elif(val==4):
             vid = yt.streams.filter(res="240p").first()
             try:
                 vid.download("D:/")
             except:
-                print("some error occured while downloading")
+                for_status.configure(text=ERROR)
+                #print("some error occured while downloading")
         elif(val==5):
             vid = yt.streams.filter(res="144p").first()
             try:
                 vid.download("D:/")
             except:
-                print("some error occured while downloading")
+                for_status.configure(text=ERROR)
+                #print("some error occured while downloading")
 
 
     except:
-        print("some error occured")
+        for_status.configure(text=ERROR)
+        #print("some error occured")
 
 
     print("downlaod vid is called")
