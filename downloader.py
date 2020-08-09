@@ -18,7 +18,7 @@ frame_for_res=Frame(window,height=100,bg="light sky blue")
 frame_for_res.pack(pady=10)
 fram_for_error=Frame(window,height=100,bg="light sky blue")
 fram_for_error.pack(pady=40)
-for_status=Label(fram_for_error, text=" ", bg="light sky blue")
+for_status=Label(fram_for_error, text=" ",font=('Helvetica', 12,"bold"), bg="light sky blue")
 for_status.pack()
 ERROR="some error occured "
 def downloadvid(event):
