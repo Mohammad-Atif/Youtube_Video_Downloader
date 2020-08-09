@@ -22,12 +22,14 @@ for_status=Label(fram_for_error, text=" ", bg="light sky blue")
 for_status.pack()
 ERROR="some error occured "
 def downloadvid(event):
+    global yt
+    for_status.configure(text="Downloading...")
     val=var.get()
     url=urlentry.get()
     print(url)
-    for_status.configure(text="")
+
     try:
-        yt=YouTube(url)
+        yt=YouTube(url,on_progress_callback=progress(),on_complete_callback=completed())
     except:
         for_status.configure(text=ERROR)
     try:
@@ -73,8 +75,12 @@ def downloadvid(event):
         #print("some error occured")
 
 
-    print("downlaod vid is called")
 
+
+def completed():
+    for_status.configure(text="Video Downloaded")
+def progress():
+    for_status.configure(text="downloading")
 
 
 pasteurltxt=Label(frame2,text="Paste url",font=("Arial Bold",20),bg="light sky blue")
