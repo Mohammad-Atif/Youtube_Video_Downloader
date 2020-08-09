@@ -17,14 +17,66 @@ frame2.pack()
 frame_for_res=Frame(window,height=100,bg="light sky blue")
 frame_for_res.pack(pady=10)
 
+
+def downloadvid(event):
+    val=var.get()
+    url=urlentry.get()
+    print(url)
+    yt=YouTube(url)
+
+    try:
+        if(val==1):
+            vid=yt.streams.filter(res="720p").first()
+            try:
+                vid.download("D:/")
+            except:
+                print("some error occured while downloading")
+        elif(val==2):
+            vid = yt.streams.filter(res="480p").first()
+            try:
+                vid.download("D:/")
+            except:
+                print("some error occured while downloading")
+        elif(val==3):
+            vid = yt.streams.filter(res="360p").first()
+            try:
+                vid.download("D:/")
+            except:
+                print("some error occured while downloading")
+        elif(val==4):
+            vid = yt.streams.filter(res="240p").first()
+            try:
+                vid.download("D:/")
+            except:
+                print("some error occured while downloading")
+        elif(val==5):
+            vid = yt.streams.filter("144p").first()
+            try:
+                vid.download("D:/")
+            except:
+                print("some error occured while downloading")
+
+
+    except:
+        print("some error occured")
+
+
+    print("downlaod vid is called")
+
+
+
+
+
 pasteurltxt=Label(frame2,text="Paste url",font=("Arial Bold",20),bg="light sky blue")
 pasteurltxt.pack()
+pasteurltxt.bind("<Return>",downloadvid)
 
 urlentry=Entry(frame2,width=60)
 urlentry.pack(pady=5)
 
 downloadbtn=Button(frame2,text="DOWNLOAD",font=("ms serif",16,"bold"),fg="snow",bg="red")
 downloadbtn.pack(pady=30)
+downloadbtn.bind("<Button-1>",downloadvid)
 
 var=IntVar()
 
@@ -42,6 +94,8 @@ btn144p.grid(column=4,row=0,padx=5)
 
 
 var.set(5)
+
+
 
 
 
