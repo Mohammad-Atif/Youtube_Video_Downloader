@@ -4,7 +4,7 @@ from pytube import  YouTube
 # Now first creating a GUI
 
 window=Tk()
-window.title("YOUTUBE VIDEO DOWNLOADER")
+window.title("YOUTUBE VIDEO DOWNLOADER- by Atif")
 window.geometry('600x600')
 window.configure(bg="light sky blue")
 window.resizable(0,0)
