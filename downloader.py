@@ -28,10 +28,10 @@ def downloadvid(event):
     url=urlentry.get()
     print(url)
 
-    try:
-        yt=YouTube(url,on_progress_callback=progress(),on_complete_callback=completed())
-    except:
-        for_status.configure(text=ERROR)
+    # try:
+    yt=YouTube(url,on_progress_callback=progress(),on_complete_callback=completed())
+    # except:
+    #     for_status.configure(text=ERROR)
     try:
         if(val==1):
             vid=yt.streams.filter(res="720p").first()
